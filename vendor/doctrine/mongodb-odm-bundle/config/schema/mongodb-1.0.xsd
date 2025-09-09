@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns="http://symfony.com/schema/dic/doctrine/odm/mongodb"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://symfony.com/schema/dic/doctrine/odm/mongodb"
+    elementFormDefault="qualified">
+
+  <xsd:element name="config" type="config" />
+
+  <xsd:complexType name="config">
+    <xsd:sequence>
+      <xsd:element name="default-commit-options" type="default-commit-options" minOccurs="0" />
+      <xsd:element name="connection" type="connection" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="document-manager" type="document-manager" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="resolve-target-document" type="resolve_target_document" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="auto-generate-hydrator-classes" type="xsd:integer" />
+    <xsd:attribute name="auto-generate-proxy-classes" type="xsd:integer" />
+    <xsd:attribute name="auto-generate-persistent-collection-classes" type="xsd:integer" />
+    <xsd:attribute name="default-connection" type="xsd:string" />
+    <xsd:attribute name="default-database" type="xsd:string" />
+    <xsd:attribute name="default-document-manager" type="xsd:string" />
+    <xsd:attribute name="hydrator-dir" type="xsd:string" />
+    <xsd:attribute name="hydrator-namespace" type="xsd:string" />
+    <xsd:attribute name="persistent-collection-dir" type="xsd:string" />
+    <xsd:attribute name="persistent-collection-namespace" type="xsd:string" />
+    <xsd:attribute name="proxy-dir" type="xsd:string" />
+    <xsd:attribute name="proxy-namespace" type="xsd:string" />
+    <xsd:attribute name="fixture-loader" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="default-commit-options">
+    <xsd:attribute name="j" type="xsd:boolean" />
+    <xsd:attribute name="timeout" type="xsd:integer" />
+    <xsd:attribute name="w" type="xsd:string" />
+    <xsd:attribute name="wtimeout" type="xsd:integer" />
+  </xsd:complexType>
+
+  <xsd:complexType name="resolve_target_document">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="interface" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="connection">
+    <xsd:sequence>
+      <xsd:element name="options" type="connection-options" minOccurs="0" />
+      <xsd:element name="driver-options" type="connection-driver-options" minOccurs="0" />
+      <xsd:element name="autoEncryption" type="auto-encryption" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string" use="required" />
+    <xsd:attribute name="server" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="connection-options">
+    <xsd:sequence>
+      <xsd:element name="readPreferenceTags" type="read-preference-tag-set" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="authMechanism" type="auth-mechanism" />
+    <xsd:attribute name="authSource" type="xsd:string" />
+    <xsd:attribute name="connectTimeoutMS" type="xsd:integer" />
+    <xsd:attribute name="db" type="xsd:string" />
+    <xsd:attribute name="journal" type="xsd:boolean" />
+    <xsd:attribute name="password" type="xsd:string" />
+    <xsd:attribute name="readPreference" type="read-preference" />
+    <xsd:attribute name="replicaSet" type="xsd:string" />
+    <xsd:attribute name="ssl" type="xsd:boolean" />
+    <xsd:attribute name="tls" type="xsd:boolean" />
+    <xsd:attribute name="tlsAllowInvalidCertificates" type="xsd:boolean" />
+    <xsd:attribute name="tlsAllowInvalidHostnames" type="xsd:boolean" />
+    <xsd:attribute name="tlsCAFile" type="xsd:string" />
+    <xsd:attribute name="tlsCertificateKeyFile" type="xsd:string" />
+    <xsd:attribute name="tlsCertificateKeyFilePassword" type="xsd:string" />
+    <xsd:attribute name="tlsDisableCertificateRevocationCheck" type="xsd:boolean" />
+    <xsd:attribute name="tlsDisableOCSPEndpointCheck" type="xsd:boolean" />
+    <xsd:attribute name="tlsInsecure" type="xsd:boolean" />
+    <xsd:attribute name="socketTimeoutMS" type="xsd:integer" />
+    <xsd:attribute name="username" type="xsd:string" />
+    <xsd:attribute name="retryReads" type="xsd:boolean" />
+    <xsd:attribute name="retryWrites" type="xsd:boolean" />
+    <xsd:attribute name="w" type="xsd:string" />
+    <xsd:attribute name="wTimeoutMS" type="xsd:integer" />
+  </xsd:complexType>
+
+  <xsd:complexType name="connection-driver-options">
+    <xsd:all>
+      <xsd:element name="autoEncryption" type="auto-encryption" minOccurs="0"/>
+    </xsd:all>
+    <xsd:attribute name="context" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:simpleType name="auth-mechanism">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SCRAM-SHA-1" />
+      <xsd:enumeration value="SCRAM-SHA-256" />
+      <xsd:enumeration value="MONGODB-CR" />
+      <xsd:enumeration value="MONGODB-X509" />
+      <xsd:enumeration value="PLAIN" />
+      <xsd:enumeration value="GSSAPI" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="read-preference">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="primary" />
+      <xsd:enumeration value="primaryPreferred" />
+      <xsd:enumeration value="secondary" />
+      <xsd:enumeration value="secondaryPreferred" />
+      <xsd:enumeration value="nearest" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="read-preference-tag-set">
+    <xsd:sequence>
+      <xsd:element name="readPreferenceTag" type="read-preference-tag" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="read-preference-tag">
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    <xsd:attribute name="value" type="xsd:string" use="required" />
+  </xsd:complexType>
+
+  <xsd:complexType name="auto-encryption">
+    <xsd:sequence>
+      <xsd:element name="kmsProvider" type="kms-provider" />
+      <xsd:element name="masterKey" type="master-key" minOccurs="0" />
+      <xsd:element name="keyVaultClient" type="xsd:string" minOccurs="0" />
+      <xsd:element name="keyVaultNamespace" type="xsd:string" minOccurs="0" />
+      <xsd:element name="tlsOptions" type="tls-options" minOccurs="0" />
+      <xsd:element name="encryptedFieldsMap" type="encrypted-fields-map" minOccurs="0" />
+      <xsd:element name="extraOptions" type="extra-options" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="bypassAutoEncryption" type="xsd:boolean" />
+    <xsd:attribute name="bypassQueryAnalysis" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:complexType name="kms-provider">
+    <xsd:attribute name="type" type="xsd:string" use="required" />
+    <!-- AWS -->
+    <xsd:attribute name="accessKeyId" type="xsd:string" />
+    <xsd:attribute name="secretAccessKey" type="xsd:string" />
+    <xsd:attribute name="sessionToken" type="xsd:string" />
+    <!-- Azure -->
+    <xsd:attribute name="tenantId" type="xsd:string" />
+    <xsd:attribute name="clientId" type="xsd:string" />
+    <xsd:attribute name="clientSecret" type="xsd:string" />
+    <xsd:attribute name="keyVaultEndpoint" type="xsd:string" />
+    <xsd:attribute name="identityPlatformEndpoint" type="xsd:string" />
+    <xsd:attribute name="keyName" type="xsd:string" />
+    <xsd:attribute name="keyVersion" type="xsd:string" />
+    <!-- GCP -->
+    <xsd:attribute name="email" type="xsd:string" />
+    <xsd:attribute name="privateKey" type="xsd:string" />
+    <xsd:attribute name="endpoint" type="xsd:string" />
+    <xsd:attribute name="projectId" type="xsd:string" />
+    <xsd:attribute name="location" type="xsd:string" />
+    <xsd:attribute name="keyRing" type="xsd:string" />
+    <!-- Attribute already present for another KMS type -->
+    <!-- <xsd:attribute name="keyName" type="xsd:string" /> -->
+    <!-- <xsd:attribute name="keyVersion" type="xsd:string" /> -->
+    <!-- KMIP -->
+    <!-- <xsd:attribute name="endpoint" type="xsd:string" /> -->
+    <!-- Local -->
+    <xsd:attribute name="key" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="master-key">
+    <!-- AWS -->
+    <xsd:attribute name="region" type="xsd:string" />
+    <xsd:attribute name="key" type="xsd:string" />
+    <xsd:attribute name="endpoint" type="xsd:string" />
+    <!-- Azure -->
+    <xsd:attribute name="keyVaultEndpoint" type="xsd:string" />
+    <xsd:attribute name="keyName" type="xsd:string" />
+    <xsd:attribute name="keyVersion" type="xsd:string" />
+    <!-- GCP -->
+    <xsd:attribute name="projectId" type="xsd:string" />
+    <xsd:attribute name="location" type="xsd:string" />
+    <xsd:attribute name="keyRing" type="xsd:string" />
+    <!-- Attribute already present for another master key type -->
+    <!-- <xsd:attribute name="keyName" type="xsd:string" /> -->
+    <!-- <xsd:attribute name="keyVersion" type="xsd:string" /> -->
+    <!-- <xsd:attribute name="endpoint" type="xsd:string" /> -->
+    <!-- KMIP -->
+    <xsd:attribute name="keyId" type="xsd:string" />
+    <!-- <xsd:attribute name="endpoint" type="xsd:string" /> -->
+    <xsd:attribute name="delegated" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:complexType name="tls-options">
+    <xsd:attribute name="tlsCAFile" type="xsd:string" />
+    <xsd:attribute name="tlsCertificateKeyFile" type="xsd:string" />
+    <xsd:attribute name="tlsCertificateKeyFilePassword" type="xsd:string" />
+    <xsd:attribute name="tlsDisableOCSPEndpointCheck" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:simpleType name="encrypted-fields-map">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:complexType name="encrypted-queries">
+    <xsd:attribute name="queryType" type="xsd:string" use="required" />
+    <xsd:attribute name="min" type="xsd:string" />
+    <xsd:attribute name="max" type="xsd:string" />
+    <xsd:attribute name="sparsity" type="xsd:string" />
+    <xsd:attribute name="trimFactor" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="extra-options">
+    <xsd:sequence>
+      <xsd:element name="mongocryptdSpawnArgs" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="mongocryptdURI" type="xsd:string" />
+    <xsd:attribute name="mongocryptdBypassSpawn" type="xsd:boolean" />
+    <xsd:attribute name="mongocryptdSpawnPath" type="xsd:string" />
+    <xsd:attribute name="cryptSharedLibPath" type="xsd:string" />
+    <xsd:attribute name="cryptSharedLibRequired" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:complexType name="document-manager">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element name="filter" type="filter" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="mapping" type="mapping" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element name="metadata-cache-driver" type="metadata-cache-driver" minOccurs="0" />
+      <xsd:element name="profiler" type="profiler" minOccurs="0" />
+    </xsd:choice>
+    <xsd:attribute name="id" type="xsd:string" use="required" />
+    <xsd:attribute name="auto-mapping" type="xsd:boolean" />
+    <xsd:attribute name="connection" type="xsd:string" />
+    <xsd:attribute name="database" type="xsd:string" />
+    <xsd:attribute name="logging" type="xsd:boolean" />
+    <xsd:attribute name="metadata-cache-driver" type="xsd:string" />
+    <xsd:attribute name="profiler" type="xsd:boolean" />
+    <xsd:attribute name="default-document-repository-class" type="xsd:string" />
+      <xsd:attribute name="default-gridfs-repository-class" type="xsd:string" />
+    <xsd:attribute name="repository-factory" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="filter">
+    <xsd:sequence>
+      <xsd:element name="parameter" type="filter-parameter" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    <xsd:attribute name="class" type="xsd:string" use="required" />
+    <xsd:attribute name="enabled" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:complexType name="filter-parameter">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="mapping">
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+    <xsd:attribute name="alias" type="xsd:string" />
+    <xsd:attribute name="dir" type="xsd:string" />
+    <xsd:attribute name="is-bundle" type="xsd:boolean" />
+    <xsd:attribute name="mapping" type="xsd:boolean" />
+    <xsd:attribute name="prefix" type="xsd:string" />
+    <xsd:attribute name="type" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="metadata-cache-driver">
+    <xsd:all>
+      <xsd:element name="class" type="xsd:string" minOccurs="0" />
+      <xsd:element name="host" type="xsd:string" minOccurs="0" />
+      <xsd:element name="instance-class" type="xsd:string" minOccurs="0" />
+      <xsd:element name="port" type="xsd:integer" minOccurs="0" />
+    </xsd:all>
+    <xsd:attribute name="id" type="xsd:string" />
+    <xsd:attribute name="type" type="xsd:string" />
+    <xsd:attribute name="namespace" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="profiler">
+    <xsd:attribute name="enabled" type="xsd:boolean" />
+    <xsd:attribute name="pretty" type="xsd:boolean" />
+  </xsd:complexType>
+
+  <xsd:complexType name="type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <xsd:attribute name="class" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+</xsd:schema>

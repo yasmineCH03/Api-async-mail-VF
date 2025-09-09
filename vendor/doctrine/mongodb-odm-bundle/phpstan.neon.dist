@@ -1,0 +1,17 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    phpVersion: 80400
+    level: 7
+    paths:
+        - config
+        - src
+        - tests
+    excludePaths:
+        # Error "overriding property ... should also have native type" is not ignorable
+        - src/Validator/Constraints/Unique.php
+
+    ignoreErrors:
+        - message: '# with generic class Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata#'
+          identifier: missingType.generics

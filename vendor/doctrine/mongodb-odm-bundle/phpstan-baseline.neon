@@ -1,0 +1,775 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Class Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: config/value_resolver.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\APM\\CommandLoggerRegistry\:\:__construct\(\) has parameter \$commandLoggers with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/APM/CommandLoggerRegistry.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\ArgumentResolver\\DocumentValueResolver\:\:resolve\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ArgumentResolver/DocumentValueResolver.php
+
+		-
+			message: '#^Cannot cast array\|bool\|float\|int\|string\|UnitEnum\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/CacheWarmer/HydratorCacheWarmer.php
+
+		-
+			message: '#^Cannot cast array\|bool\|float\|int\|string\|UnitEnum\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/CacheWarmer/PersistentCollectionCacheWarmer.php
+
+		-
+			message: '#^Cannot cast array\|bool\|float\|int\|string\|UnitEnum\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/CacheWarmer/ProxyCacheWarmer.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/ClearMetadataCacheDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/CreateSchemaDoctrineODMCommand.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getManager\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Command/DoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/DropSchemaDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/GenerateHydratorsDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/GenerateProxiesDoctrineODMCommand.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Console\\Helper\\HelperInterface\:\:ask\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Command/LoadDataFixturesDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/QueryDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/ShardDoctrineODMCommand.php
+
+		-
+			message: '#^Parameter \#1 \$application of static method Doctrine\\Bundle\\MongoDBBundle\\Command\\DoctrineODMCommand\:\:setApplicationDocumentManager\(\) expects Symfony\\Bundle\\FrameworkBundle\\Console\\Application, Symfony\\Component\\Console\\Application\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/UpdateSchemaDoctrineODMCommand.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DataCollector\\ConnectionDiagnostic\:\:__construct\(\) has parameter \$driverOptions with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DataCollector/ConnectionDiagnostic.php
+
+		-
+			message: '#^Cannot cast array\|bool\|float\|int\|string\|UnitEnum\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/DependencyInjection/Compiler/CreateHydratorDirectoryPass.php
+
+		-
+			message: '#^Cannot cast array\|bool\|float\|int\|string\|UnitEnum\|null to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/DependencyInjection/Compiler/CreateProxyDirectoryPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:__construct\(\) has parameter \$namespaces with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createAttributeMappingDriver\(\) has parameter \$directories with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createAttributeMappingDriver\(\) has parameter \$namespaces with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createPhpMappingDriver\(\) has parameter \$mappings with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createStaticPhpMappingDriver\(\) has parameter \$directories with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createStaticPhpMappingDriver\(\) has parameter \$namespaces with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Compiler\\DoctrineMongoDBMappingsPass\:\:createXmlMappingDriver\(\) has parameter \$mappings with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/Compiler/DoctrineMongoDBMappingsPass.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:children\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:fixXmlConfig\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:performNoDeepMerging\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface\:\:end\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Call to function method_exists\(\) with ''Doctrine\\\\ODM\\\\MongoDB\\\\Configuration'' and ''setUseLazyGhostObje…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Parameter \#1 \$rootNode of method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Configuration\:\:addConnectionsSection\(\) expects Symfony\\Component\\Config\\Definition\\Builder\\ArrayNodeDefinition, Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Parameter \#1 \$rootNode of method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Configuration\:\:addDocumentManagersSection\(\) expects Symfony\\Component\\Config\\Definition\\Builder\\ArrayNodeDefinition, Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Parameter \#1 \$rootNode of method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Configuration\:\:addResolveTargetDocumentsSection\(\) expects Symfony\\Component\\Config\\Definition\\Builder\\ArrayNodeDefinition, Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Parameter \#1 \$rootNode of method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\Configuration\:\:addTypesSection\(\) expects Symfony\\Component\\Config\\Definition\\Builder\\ArrayNodeDefinition, Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Call to function method_exists\(\) with ''Doctrine\\\\ODM\\\\MongoDB\\\\Configuration'' and ''setAutoEncryption'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Call to function method_exists\(\) with ''Doctrine\\\\ODM\\\\MongoDB\\\\Configuration'' and ''setUseTransactional…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadCacheDriver\(\) has parameter \$cacheDriver with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadConnections\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadConnections\(\) has parameter \$connections with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadDocumentManager\(\) has parameter \$documentManager with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadDocumentManagerBundlesMappingInformation\(\) has parameter \$documentManager with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:loadDocumentManagers\(\) has parameter \$dmConfigs with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\DependencyInjection\\DoctrineMongoDBExtension\:\:overrideParameters\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Parameter \#2 \$bundles of method Symfony\\Bridge\\Doctrine\\DependencyInjection\\AbstractDoctrineExtension\:\:fixManagersAutoMappings\(\) expects array, array\|bool\|float\|int\|string\|UnitEnum\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, array\<string, class\-string\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/DoctrineMongoDBExtension.php
+
+		-
+			message: '#^Call to an undefined method object\:\:register\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DoctrineMongoDBBundle.php
+
+		-
+			message: '#^Call to an undefined method object\:\:unregister\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DoctrineMongoDBBundle.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function spl_autoload_register expects \(callable\(string\)\: void\)\|null, ProxyManager\\Autoloader\\AutoloaderInterface given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DoctrineMongoDBBundle.php
+
+		-
+			message: '#^Parameter \#1 \$documentManager of method Doctrine\\Bundle\\MongoDBBundle\\DoctrineMongoDBBundle\:\:registerAutoloader\(\) expects Doctrine\\ODM\\MongoDB\\DocumentManager, Doctrine\\Persistence\\ObjectManager given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DoctrineMongoDBBundle.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on array\<string, mixed\>\|int\|object\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Form/ChoiceList/MongoDBQueryBuilderLoader.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Form\\ChoiceList\\MongoDBQueryBuilderLoader\:\:getEntitiesByIds\(\) has parameter \$values with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Form/ChoiceList/MongoDBQueryBuilderLoader.php
+
+		-
+			message: '#^Parameter \#1 \$className of method Doctrine\\Persistence\\ObjectManager\:\:getRepository\(\) expects class\-string\<object\>, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/ChoiceList/MongoDBQueryBuilderLoader.php
+
+		-
+			message: '#^Unable to resolve the template type T in call to method Doctrine\\Persistence\\ObjectManager\:\:getRepository\(\)$#'
+			identifier: argument.templateType
+			count: 1
+			path: src/Form/ChoiceList/MongoDBQueryBuilderLoader.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Form\\DoctrineMongoDBTypeGuesser\:\:getMetadata\(\) should return array\{Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata, string\}\|null but returns array\{Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>, string\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Form\\DoctrineMongoDBTypeGuesser\:\:guessMinLength\(\) has parameter \$class with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Form\\DoctrineMongoDBTypeGuesser\:\:guessMinLength\(\) has parameter \$property with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Offset ''targetDocument'' might not exist on array\{type\: string, fieldName\: string, name\: string, isCascadeRemove\: bool, isCascadePersist\: bool, isCascadeRefresh\: bool, isCascadeMerge\: bool, isCascadeDetach\: bool, \.\.\.\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Parameter \#1 \$className of method Doctrine\\Persistence\\ObjectManager\:\:getClassMetadata\(\) expects class\-string\<object\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Form\\DoctrineMongoDBTypeGuesser\:\:\$cache \(array\<class\-string, array\{Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata, string\}\|null\>\) does not accept non\-empty\-array\<string, array\{Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata, string\}\|null\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Form\\DoctrineMongoDBTypeGuesser\:\:\$cache \(array\<class\-string, array\{Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata, string\}\|null\>\) does not accept non\-empty\-array\<string, array\{Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>, string\}\|null\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Unable to resolve the template type T in call to method Doctrine\\Persistence\\ObjectManager\:\:getClassMetadata\(\)$#'
+			identifier: argument.templateType
+			count: 1
+			path: src/Form/DoctrineMongoDBTypeGuesser.php
+
+		-
+			message: '#^Parameter \#1 \$queryBuilder of class Doctrine\\Bundle\\MongoDBBundle\\Form\\ChoiceList\\MongoDBQueryBuilderLoader constructor expects Closure\|Doctrine\\ODM\\MongoDB\\Query\\Builder, object given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Type/DocumentType.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Loader\\SymfonyFixturesLoader\:\:createFixture\(\) has parameter \$class with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Loader/SymfonyFixturesLoader.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\ManagerConfigurator\:\:__construct\(\) has parameter \$enabledFilters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ManagerConfigurator.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\ManagerConfigurator\:\:loadTypes\(\) has parameter \$types with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ManagerConfigurator.php
+
+		-
+			message: '#^Property Symfony\\Bridge\\Doctrine\\ManagerRegistry\:\:\$container \(Symfony\\Component\\DependencyInjection\\Container\) does not accept Psr\\Container\\ContainerInterface\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ManagerRegistry.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Repository\\ContainerRepositoryFactory\:\:getOrCreateRepository\(\) should return Doctrine\\Persistence\\ObjectRepository\<T of object\> but returns object\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Repository/ContainerRepositoryFactory.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Repository\\ContainerRepositoryFactory\:\:\$managedRepositories \(array\<string, Doctrine\\Persistence\\ObjectRepository\>\) does not accept array\<string, object\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Repository/ContainerRepositoryFactory.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Repository\\ContainerRepositoryFactory\:\:\$managedRepositories with generic interface Doctrine\\Persistence\\ObjectRepository does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Repository/ContainerRepositoryFactory.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertFalse\(\) with false will always evaluate to false\.$#'
+			identifier: method.impossibleType
+			count: 1
+			path: tests/CacheWarmer/HydratorCacheWarmerTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertFalse\(\) with false will always evaluate to false\.$#'
+			identifier: method.impossibleType
+			count: 1
+			path: tests/CacheWarmer/PersistentCollectionCacheWarmerTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\CacheWarmer\\PersistentCollectionCacheWarmerTest\:\:provideWarmerNotExecuted\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/CacheWarmer/PersistentCollectionCacheWarmerTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertFalse\(\) with false will always evaluate to false\.$#'
+			identifier: method.impossibleType
+			count: 1
+			path: tests/CacheWarmer/ProxyCacheWarmerTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Command\\CommandTestKernel\:\:registerBundles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Command/CommandTestKernel.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Command\\DoctrineODMCommandTest\:\:provideDmName\(\) return type has no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Command/DoctrineODMCommandTest.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Command\\LoadDataFixturesDoctrineODMCommandTest\:\:\$command \(Doctrine\\Bundle\\MongoDBBundle\\Command\\LoadDataFixturesDoctrineODMCommand\) does not accept Symfony\\Component\\Console\\Command\\Command\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: tests/Command/LoadDataFixturesDoctrineODMCommandTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\ContainerTest\:\:provideDataCollectorConfigs\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\ContainerTest\:\:provideLoggerConfigs\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\ContainerTest\:\:testDataCollectorConfig\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\ContainerTest\:\:testLoggerConfig\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, array\<string, class\-string\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/DependencyInjection/AbstractMongoDBExtensionTestCase.php
+
+		-
+			message: '#^Call to function method_exists\(\) with ''Doctrine\\\\ODM\\\\MongoDB\\\\Configuration'' and ''setUseLazyGhostObje…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\ConfigurationTest\:\:testFullConfiguration\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\ConfigurationTest\:\:testMergeOptions\(\) has parameter \$configs with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\ConfigurationTest\:\:testMergeOptions\(\) has parameter \$expected with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\ConfigurationTest\:\:testNormalizeOptions\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\ConfigurationTest\:\:testNormalizeOptions\(\) has parameter \$expected with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Parameter \#1 \$input of static method Symfony\\Component\\Yaml\\Yaml\:\:parse\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:assertDICDefinitionMethodCall\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:buildConfiguration\(\) has parameter \$settings with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:buildConfiguration\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:getAutomappingConfigurations\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:parameterProvider\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\DoctrineMongoDBExtensionTest\:\:testAutomapping\(\) has parameter \$documentManagers with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DependencyInjection/DoctrineMongoDBExtensionTest.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Document\\TestCustomClassRepoDocument\:\:\$id is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: tests/DependencyInjection/Fixtures/Bundles/RepositoryServiceBundle/Document/TestCustomClassRepoDocument.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Document\\TestCustomServiceRepoDocument\:\:\$id is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: tests/DependencyInjection/Fixtures/Bundles/RepositoryServiceBundle/Document/TestCustomServiceRepoDocument.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Document\\TestCustomServiceRepoFile\:\:\$id is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: tests/DependencyInjection/Fixtures/Bundles/RepositoryServiceBundle/Document/TestCustomServiceRepoFile.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Document\\TestDefaultRepoDocument\:\:\$id is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: tests/DependencyInjection/Fixtures/Bundles/RepositoryServiceBundle/Document/TestDefaultRepoDocument.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Document\\TestDefaultRepoFile\:\:\$id is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: tests/DependencyInjection/Fixtures/Bundles/RepositoryServiceBundle/Document/TestDefaultRepoFile.php
+
+		-
+			message: '#^Call to an undefined method object\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/DocumentValueResolverFunctionalTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:persist\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/DocumentValueResolverFunctionalTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:remove\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/DocumentValueResolverFunctionalTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\FooTestKernel\:\:registerBundles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/DocumentValueResolverFunctionalTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\IntegrationTestKernel\:\:registerBundles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/FixtureIntegrationTest.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\CommandBundle\\Document\\User\:\:\$id \(string\|null\) is never assigned string so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: tests/Fixtures/CommandBundle/Document/User.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\CommandBundle\\Document\\User\:\:\$id is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: tests/Fixtures/CommandBundle/Document/User.php
+
+		-
+			message: '#^Constructor of class Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\FooBundle\\DataFixtures\\RequiredConstructorArgsFixtures has an unused parameter \$fooRequiredArg\.$#'
+			identifier: constructor.unusedParameter
+			count: 1
+			path: tests/Fixtures/FooBundle/DataFixtures/RequiredConstructorArgsFixtures.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\Form\\Guesser\:\:\$collectionField type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Fixtures/Form/Guesser.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\Security\\User\:\:getUserIdentifier\(\) should return non\-empty\-string but returns string\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Fixtures/Security/User.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\Validator\\Document\:\:\$collection type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Fixtures/Validator/Document.php
+
+		-
+			message: '#^Property Doctrine\\Bundle\\MongoDBBundle\\Tests\\Fixtures\\Validator\\Document\:\:\$hash type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Fixtures/Validator/Document.php
+
+		-
+			message: '#^Binary operation "\." between ''\?\>'' and array\|string results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/ManagerRegistryTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/ManagerRegistryTest.php
+
+		-
+			message: '#^PHPDoc tag @var with type class\-string\<Symfony\\Component\\DependencyInjection\\Container\> is not subtype of native type ''MongoDBManagerRepos…''\.$#'
+			identifier: varTag.nativeType
+			count: 1
+			path: tests/ManagerRegistryTest.php
+
+		-
+			message: '#^Parameter \#6 \$proxyInterfaceName of class Doctrine\\Bundle\\MongoDBBundle\\ManagerRegistry constructor expects class\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/ManagerRegistryTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Mapping\\Driver\\AbstractDriverTestCase\:\:getDriver\(\) has parameter \$paths with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Mapping/Driver/AbstractDriverTestCase.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Mapping\\Driver\\AbstractDriverTestCase\:\:getDriver\(\) return type with generic class Doctrine\\Persistence\\Mapping\\Driver\\FileDriver does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Mapping/Driver/AbstractDriverTestCase.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Mapping\\Driver\\AbstractDriverTestCase\:\:getDriverLocator\(\) has parameter \$driver with generic class Doctrine\\Persistence\\Mapping\\Driver\\FileDriver but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Mapping/Driver/AbstractDriverTestCase.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Mapping\\Driver\\XmlDriverTest\:\:getDriver\(\) has parameter \$paths with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Mapping/Driver/XmlDriverTest.php
+
+		-
+			message: '#^Call to an undefined method Doctrine\\ODM\\MongoDB\\DocumentManager\|PHPUnit\\Framework\\MockObject\\MockObject\:\:getUnitOfWork\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Repository\\ContainerRepositoryFactoryTest\:\:createContainer\(\) has parameter \$services with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Method Doctrine\\Bundle\\MongoDBBundle\\Tests\\Repository\\ContainerRepositoryFactoryTest\:\:createDocumentManager\(\) has parameter \$documentRepositoryClasses with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$container of class Doctrine\\Bundle\\MongoDBBundle\\Repository\\ContainerRepositoryFactory constructor expects Psr\\Container\\ContainerInterface, PHPUnit\\Framework\\MockObject\\MockObject\|Psr\\Container\\ContainerInterface given\.$#'
+			identifier: argument.type
+			count: 6
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$dm of class Doctrine\\Bundle\\MongoDBBundle\\Tests\\Repository\\StubRepository constructor expects Doctrine\\ODM\\MongoDB\\DocumentManager, Doctrine\\ODM\\MongoDB\\DocumentManager\|PHPUnit\\Framework\\MockObject\\MockObject given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$documentManager of method Doctrine\\Bundle\\MongoDBBundle\\Repository\\ContainerRepositoryFactory\:\:getRepository\(\) expects Doctrine\\ODM\\MongoDB\\DocumentManager, Doctrine\\ODM\\MongoDB\\DocumentManager\|PHPUnit\\Framework\\MockObject\\MockObject given\.$#'
+			identifier: argument.type
+			count: 8
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$documentName of class Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata constructor expects class\-string\<T of object\>, \(int\|string\) given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Repository/ContainerRepositoryFactoryTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getRepository\(\)\.$#'
+			identifier: method.notFound
+			count: 8
+			path: tests/ServiceRepositoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$registry of class Doctrine\\Bundle\\MongoDBBundle\\Tests\\DependencyInjection\\Fixtures\\Bundles\\RepositoryServiceBundle\\Repository\\TestUnmappedDocumentRepository constructor expects Doctrine\\Bundle\\MongoDBBundle\\ManagerRegistry, object given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/ServiceRepositoryTest.php

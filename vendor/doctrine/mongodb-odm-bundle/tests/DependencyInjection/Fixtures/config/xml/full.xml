@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:doctrine="http://symfony.com/schema/dic/doctrine/odm/mongodb"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/doctrine/odm/mongodb http://symfony.com/schema/dic/doctrine/odm/mongodb/mongodb-1.0.xsd">
+
+    <doctrine:config
+        auto-generate-hydrator-classes="1"
+        auto-generate-proxy-classes="2"
+        auto-generate-persistent-collection-classes="3"
+        default-connection="conn1"
+        default-database="default_db_name"
+        default-document-manager="default_dm_name"
+        hydrator-dir="%kernel.cache_dir%/doctrine/odm/mongodb/Test_Hydrators"
+        hydrator-namespace="Test_Hydrators"
+        proxy-dir="%kernel.cache_dir%/doctrine/odm/mongodb/Test_Proxies"
+        proxy-namespace="Test_Proxies"
+        persistent-collection-dir="%kernel.cache_dir%/doctrine/odm/mongodb/Test_Pcolls"
+        persistent-collection-namespace="Test_Pcolls"
+    >
+
+        <doctrine:default-commit-options
+            j="false"
+            timeout="10"
+            w="majority"
+            wtimeout="10"
+        />
+
+        <doctrine:connection id="conn1" server="mongodb://localhost">
+            <doctrine:options
+                connectTimeoutMS="500"
+                db="database_val"
+                authSource="some_db"
+                journal="true"
+                password="password_val"
+                readPreference="secondaryPreferred"
+                replicaSet="foo"
+                socketTimeoutMS="1000"
+                ssl="true"
+                tls="true"
+                tlsAllowInvalidCertificates="false"
+                tlsAllowInvalidHostnames="false"
+                tlsCAFile="/path/to/cert.pem"
+                tlsCertificateKeyFile="/path/to/key.crt"
+                tlsCertificateKeyFilePassword="secret"
+                tlsDisableCertificateRevocationCheck="false"
+                tlsDisableOCSPEndpointCheck="false"
+                tlsInsecure="false"
+                authMechanism="MONGODB-X509"
+                username="username_val"
+                retryReads="false"
+                retryWrites="false"
+                w="majority"
+                wTimeoutMS="1000"
+            >
+                <doctrine:readPreferenceTags>
+                    <doctrine:readPreferenceTag name="dc" value="east" />
+                    <doctrine:readPreferenceTag name="use" value="reporting" />
+                </doctrine:readPreferenceTags>
+                <doctrine:readPreferenceTags>
+                    <doctrine:readPreferenceTag name="dc" value="west" />
+                </doctrine:readPreferenceTags>
+                <doctrine:readPreferenceTags />
+            </doctrine:options>
+            <doctrine:driver-options
+                context="conn1_context_service"
+            />
+            <doctrine:autoEncryption
+                bypassAutoEncryption="true"
+                bypassQueryAnalysis="true"
+            >
+                <doctrine:kmsProvider
+                    type="aws"
+                    accessKeyId="MONGODB_AWS_ACCESS_KEY_ID"
+                    secretAccessKey="MONGODB_AWS_SECRET_ACCESS_KEY"
+                    sessionToken="MONGODB_AWS_SESSION_TOKEN"
+                />
+                <doctrine:masterKey key="MONGODB_AWS_MASTER_KEY" />
+                <doctrine:keyVaultClient>my_key_vault_client_service</doctrine:keyVaultClient>
+                <doctrine:keyVaultNamespace>encryption.__keyVault</doctrine:keyVaultNamespace>
+                <doctrine:tlsOptions
+                    tlsCAFile="%kernel.project_dir%/config/certificates/mongodb-ca.pem"
+                    tlsCertificateKeyFile="%kernel.project_dir%/config/certificates/mongodb-client.pem"
+                    tlsCertificateKeyFilePassword="MONGODB_TLS_CERTIFICATE_KEY_FILE_PASSWORD"
+                    tlsDisableOCSPEndpointCheck="false"
+                />
+                <doctrine:encryptedFieldsMap>
+                    <![CDATA[
+                    {
+                        "encrypted.RangeTypes": {
+                            "fields": [
+                                {
+                                    "keyId": { "$binary": { "base64": "lhZHItpvRkqXevh4Wtqg/g==", "subType": "04" } },
+                                    "path": "intField",
+                                    "bsonType": "int",
+                                    "queries": { "queryType": "range", "contention": 8, "min": 5, "max": 10 }
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "qd9PEKIPTE2J30ev29lMpQ==", "subType": "04" } },
+                                    "path": "floatField",
+                                    "bsonType": "double",
+                                    "queries": { "queryType": "range", "contention": 8, "min": 5.5, "max": 10.5, "precision": 1 }
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "zVLg8CF4RSSu4xn7x7dOyQ==", "subType": "04" } },
+                                    "path": "decimalField",
+                                    "bsonType": "decimal",
+                                    "queries": { "queryType": "range", "contention": 8, "min": { "$numberDecimal": "0.1" }, "max": { "$numberDecimal": "0.2" }, "precision": 2 }
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "ySdd8lZ2QBqnwKPJTp/yLA==", "subType": "04" } },
+                                    "path": "immutableDateField",
+                                    "bsonType": "date",
+                                    "queries": { "queryType": "range", "contention": 8, "min": { "$date": "2000-01-01T00:00:00Z" }, "max": { "$date": "2100-01-01T00:00:00Z" } }
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "NWKI+DyES/OlNkUbJbWJ9w==", "subType": "04" } },
+                                    "path": "dateField",
+                                    "bsonType": "date"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "wiiv+0K/QAquyEq3HDxRKw==", "subType": "04" } },
+                                    "path": "binField",
+                                    "bsonType": "binData"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "2CSosXLSTEKaYphcSnUuCw==", "subType": "04" } },
+                                    "path": "timestampField",
+                                    "bsonType": "timestamp"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "h3H6HdG3T5CK+Z2yQ4Ho+Q==", "subType": "04" } },
+                                    "path": "hashField",
+                                    "bsonType": "object"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "X78UZZ/HTX2wLw4K3uG42w==", "subType": "04" } },
+                                    "path": "collectionField",
+                                    "bsonType": "objectId"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "LugQL/ZXTJOl856Yacmkwg==", "subType": "04" } },
+                                    "path": "boolField",
+                                    "bsonType": "bool"
+                                }
+                            ]
+                        },
+                        "encrypted.patients": {
+                            "fields": [
+                                {
+                                    "keyId": { "$binary": { "base64": "GH25/XvYSaCgTUQLAo1hQw==", "subType": "04" } },
+                                    "path": "pathologies",
+                                    "bsonType": "array"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "krVWyFlNTUOaGFMfk+s7UA==", "subType": "04" } },
+                                    "path": "patientRecord.billing",
+                                    "bsonType": "object"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "X1ZaSI1GSAKnZ+sPGcmYBA==", "subType": "04" } },
+                                    "path": "patientRecord.billingAmount",
+                                    "bsonType": "int",
+                                    "queries": { "queryType": "range", "contention": 8, "min": 100, "max": 2000, "sparsity": 1, "trimFactor": 4 }
+                                }
+                            ]
+                        },
+                        "encrypted.client": {
+                            "fields": [
+                                {
+                                    "keyId": { "$binary": { "base64": "I0Aw18vnRGWzVS1t3uejpQ==", "subType": "04" } },
+                                    "path": "name",
+                                    "bsonType": "string"
+                                },
+                                {
+                                    "keyId": { "$binary": { "base64": "XSPRK3vaTLmMZr9IEj/qwQ==", "subType": "04" } },
+                                    "path": "clientCards",
+                                    "bsonType": "array"
+                                }
+                            ]
+                        }
+                    }
+                    ]]>
+                </doctrine:encryptedFieldsMap>
+                <doctrine:extraOptions
+                    mongocryptdURI="mongodb://localhost:27020"
+                    mongocryptdBypassSpawn="true"
+                    mongocryptdSpawnPath="%kernel.project_dir%/bin/mongocryptd"
+                    cryptSharedLibPath="%kernel.project_dir%/bin/mongo_crypt_v1.dylib"
+                    cryptSharedLibRequired="true"
+                >
+                    <doctrine:mongocryptdSpawnArgs>--pidfilepath=%kernel.project_dir%/var/mongocryptd.pid</doctrine:mongocryptdSpawnArgs>
+                    <doctrine:mongocryptdSpawnArgs>--idleShutdownTimeoutSecs=60</doctrine:mongocryptdSpawnArgs>
+                </doctrine:extraOptions>
+            </doctrine:autoEncryption>
+        </doctrine:connection>
+
+        <doctrine:connection id="conn2" server="mongodb://otherhost" />
+
+        <doctrine:document-manager
+            id="dm1"
+            repository-factory="doctrine_mongodb.odm.container_repository_factory"
+        >
+            <doctrine:mapping name="FooBundle" type="attribute" />
+            <doctrine:metadata-cache-driver type="memcached">
+                <doctrine:class>fooClass</doctrine:class>
+                <doctrine:host>host_val</doctrine:host>
+                <doctrine:port>1234</doctrine:port>
+                <doctrine:instance-class>instance_val</doctrine:instance-class>
+            </doctrine:metadata-cache-driver>
+            <doctrine:profiler enabled="true" pretty="false" />
+            <doctrine:filter name="disabled_filter" enabled="false" class="Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\DisabledFilter" />
+            <doctrine:filter name="basic_filter" enabled="true" class="Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\BasicFilter" />
+            <doctrine:filter name="complex_filter" enabled="true" class="Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\ComplexFilter">
+                <doctrine:parameter name="integer">1</doctrine:parameter>
+                <doctrine:parameter name="string">foo</doctrine:parameter>
+                <doctrine:parameter name="object">{"key":"value"}</doctrine:parameter>
+                <doctrine:parameter name="array">[1,2,3]</doctrine:parameter>
+            </doctrine:filter>
+        </doctrine:document-manager>
+
+        <doctrine:document-manager
+            id="dm2"
+            connection="dm2_connection"
+            database="db1"
+            metadata-cache-driver="apcu"
+            logging="true"
+            repository-factory="doctrine_mongodb.odm.container_repository_factory"
+            default-document-repository-class="Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Repository\CustomRepository"
+            default-gridfs-repository-class="Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Repository\CustomGridFSRepository"
+        >
+            <doctrine:mapping
+                name="BarBundle"
+                type="xml"
+                dir="%kernel.cache_dir%"
+                prefix="prefix_val"
+                alias="alias_val"
+                is-bundle="false"
+            />
+        </doctrine:document-manager>
+
+        <doctrine:resolve-target-document interface="Foo\BarInterface">Bar\FooClass</doctrine:resolve-target-document>
+    </doctrine:config>
+</container>

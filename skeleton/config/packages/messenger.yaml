@@ -1,0 +1,23 @@
+framework:
+    messenger:
+        # Message bus config
+        buses:
+            messenger.bus.default:
+                middleware:
+                    - doctrine_ping_connection
+                    - doctrine_close_connection
+
+        # Transports
+        transports:
+            async:
+                dsn: '%env(RABBITMQ_URL)%'
+                options:
+                    exchange:
+                        name: emails
+                        type: direct
+                    queues:
+                        emails: ~
+
+        # Routes
+        routing:
+            'App\Message\SendEmailMessage': async

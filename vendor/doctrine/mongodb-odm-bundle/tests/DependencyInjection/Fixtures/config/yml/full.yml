@@ -1,0 +1,190 @@
+doctrine_mongodb:
+    auto_generate_proxy_classes: 2
+    auto_generate_hydrator_classes: true
+    auto_generate_persistent_collection_classes: 3
+    default_connection: conn1
+    default_database: default_db_name
+    default_document_manager: default_dm_name
+    hydrator_dir: "%kernel.cache_dir%/doctrine/odm/mongodb/Test_Hydrators"
+    hydrator_namespace: Test_Hydrators
+    proxy_dir: "%kernel.cache_dir%/doctrine/odm/mongodb/Test_Proxies"
+    proxy_namespace: Test_Proxies
+    persistent_collection_dir: "%kernel.cache_dir%/doctrine/odm/mongodb/Test_Pcolls"
+    persistent_collection_namespace: Test_Pcolls
+
+    resolve_target_documents:
+        Foo\BarInterface: Bar\FooClass
+
+    default_commit_options:
+        j: false
+        timeout: 10
+        w: majority
+        wtimeout: 10
+
+    connections:
+        conn1:
+            server:               mongodb://localhost
+            options:
+                connectTimeoutMS: 500
+                authSource:       some_db
+                db:               database_val
+                journal:          true
+                password:         password_val
+                readPreference:   secondaryPreferred
+                readPreferenceTags:
+                  - { dc: east, use: reporting }
+                  - { dc: west }
+                  - {  }
+                replicaSet:                           foo
+                socketTimeoutMS:                      1000
+                ssl:                                  true
+                tls:                                  true
+                tlsAllowInvalidCertificates:          false
+                tlsAllowInvalidHostnames:             false
+                tlsCAFile:                            '/path/to/cert.pem'
+                tlsCertificateKeyFile:                '/path/to/key.crt'
+                tlsCertificateKeyFilePassword:        'secret'
+                tlsDisableCertificateRevocationCheck: false
+                tlsDisableOCSPEndpointCheck:          false
+                tlsInsecure:                          false
+                authMechanism:                        MONGODB-X509
+                username:                             username_val
+                retryReads:                           false
+                retryWrites:                          false
+                w:                                    majority
+                wTimeoutMS:                           1000
+            driver_options:
+                context:          conn1_context_service
+            autoEncryption:
+                kmsProvider:
+                    type: 'aws'
+                    accessKeyId: 'MONGODB_AWS_ACCESS_KEY_ID'
+                    secretAccessKey: 'MONGODB_AWS_SECRET_ACCESS_KEY'
+                    sessionToken: 'MONGODB_AWS_SESSION_TOKEN'
+                masterKey:
+                    key: 'MONGODB_AWS_MASTER_KEY'
+                keyVaultNamespace: 'encryption.__keyVault'
+                keyVaultClient: 'my_key_vault_client_service'
+                tlsOptions:
+                    tlsCAFile: '%kernel.project_dir%/config/certificates/mongodb-ca.pem'
+                    tlsCertificateKeyFile: '%kernel.project_dir%/config/certificates/mongodb-client.pem'
+                    tlsCertificateKeyFilePassword: 'MONGODB_TLS_CERTIFICATE_KEY_FILE_PASSWORD'
+                    tlsDisableOCSPEndpointCheck: false
+                bypassAutoEncryption: true
+                bypassQueryAnalysis: true
+                encryptedFieldsMap:
+                    encrypted.RangeTypes:
+                        fields:
+                            - keyId: { $binary: { base64: lhZHItpvRkqXevh4Wtqg/g==, subType: '04' } }
+                              path: intField
+                              bsonType: int
+                              queries: { queryType: range, contention: 8, min: 5, max: 10 }
+                            - keyId: { $binary: { base64: qd9PEKIPTE2J30ev29lMpQ==, subType: '04' } }
+                              path: floatField
+                              bsonType: double
+                              queries: { queryType: range, contention: 8, min: 5.5, max: 10.5, precision: 1 }
+                            - keyId: { $binary: { base64: zVLg8CF4RSSu4xn7x7dOyQ==, subType: '04' } }
+                              path: decimalField
+                              bsonType: decimal
+                              queries: { queryType: range, contention: 8, min: { $numberDecimal: '0.1' }, max: { $numberDecimal: '0.2' }, precision: 2 }
+                            - keyId: { $binary: { base64: ySdd8lZ2QBqnwKPJTp/yLA==, subType: '04' } }
+                              path: immutableDateField
+                              bsonType: date
+                              queries: { queryType: range, contention: 8, min: { $date: '2000-01-01T00:00:00Z' }, max: { $date: '2100-01-01T00:00:00Z' } }
+                            - keyId: { $binary: { base64: NWKI+DyES/OlNkUbJbWJ9w==, subType: '04' } }
+                              path: dateField
+                              bsonType: date
+                            - keyId: { $binary: { base64: wiiv+0K/QAquyEq3HDxRKw==, subType: '04' } }
+                              path: binField
+                              bsonType: binData
+                            - keyId: { $binary: { base64: 2CSosXLSTEKaYphcSnUuCw==, subType: '04' } }
+                              path: timestampField
+                              bsonType: timestamp
+                            - keyId: { $binary: { base64: h3H6HdG3T5CK+Z2yQ4Ho+Q==, subType: '04' } }
+                              path: hashField
+                              bsonType: object
+                            - keyId: { $binary: { base64: X78UZZ/HTX2wLw4K3uG42w==, subType: '04' } }
+                              path: collectionField
+                              bsonType: objectId
+                            - keyId: { $binary: { base64: LugQL/ZXTJOl856Yacmkwg==, subType: '04' } }
+                              path: boolField
+                              bsonType: bool
+                    encrypted.patients:
+                        fields:
+                            - keyId: { $binary: { base64: GH25/XvYSaCgTUQLAo1hQw==, subType: '04' } }
+                              path: pathologies
+                              bsonType: array
+                            - keyId: { $binary: { base64: krVWyFlNTUOaGFMfk+s7UA==, subType: '04' } }
+                              path: patientRecord.billing
+                              bsonType: object
+                            - keyId: { $binary: { base64: X1ZaSI1GSAKnZ+sPGcmYBA==, subType: '04' } }
+                              path: patientRecord.billingAmount
+                              bsonType: int
+                              queries: { queryType: range, contention: 8, min: 100, max: 2000, sparsity: 1, trimFactor: 4 }
+                    encrypted.client:
+                        fields:
+                            - keyId: { $binary: { base64: I0Aw18vnRGWzVS1t3uejpQ==, subType: '04' } }
+                              path: name
+                              bsonType: string
+                            - keyId: { $binary: { base64: XSPRK3vaTLmMZr9IEj/qwQ==, subType: '04' } }
+                              path: clientCards
+                              bsonType: array
+                extraOptions:
+                    mongocryptdURI: 'mongodb://localhost:27020'
+                    mongocryptdBypassSpawn: true
+                    mongocryptdSpawnPath: '%kernel.project_dir%/bin/mongocryptd'
+                    mongocryptdSpawnArgs:
+                        - '--pidfilepath=%kernel.project_dir%/var/mongocryptd.pid'
+                        - '--idleShutdownTimeoutSecs=60'
+                    cryptSharedLibPath: '%kernel.project_dir%/bin/mongo_crypt_v1.dylib'
+                    cryptSharedLibRequired: true
+
+        conn2:
+            server: mongodb://otherhost
+
+    document_managers:
+        dm1:
+            repository_factory: doctrine_mongodb.odm.container_repository_factory
+            persistent_collection_factory: ~
+            mappings:
+                FooBundle:   attribute
+            metadata_cache_driver:
+                type:                  memcached
+                class:                 fooClass
+                host:                  host_val
+                port:                  1234
+                instance_class:        instance_val
+            profiler:
+                enabled: true
+                pretty:  false
+            filters:
+                disabled_filter:
+                    class:   Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\DisabledFilter
+                    enabled: false
+                basic_filter:
+                    class:   Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\BasicFilter
+                    enabled: true
+                complex_filter:
+                    class:   Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Filter\ComplexFilter
+                    enabled: true
+                    parameters:
+                        integer: 1
+                        string:  foo
+                        object:  { key: value }
+                        array:   [ 1, 2, 3 ]
+        dm2:
+            connection:       dm2_connection
+            database:         db1
+            default_document_repository_class: Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Repository\CustomRepository
+            default_gridfs_repository_class:   Doctrine\Bundle\MongoDBBundle\Tests\Fixtures\Repository\CustomGridFSRepository
+            repository_factory: doctrine_mongodb.odm.container_repository_factory
+            persistent_collection_factory: ~
+            mappings:
+                BarBundle:
+                    type:   xml
+                    dir:    "%kernel.cache_dir%"
+                    prefix: prefix_val
+                    alias:  alias_val
+                    is_bundle: false
+            metadata_cache_driver: apcu
+            logging: true
