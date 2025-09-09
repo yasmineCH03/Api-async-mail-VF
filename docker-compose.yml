@@ -1,25 +1,49 @@
+version: '3.8'
+
 services:
-  # Application PHP/Symfony
-  app:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"  # Changed to port 8000 to match your curl command
+    volumes:
+      - ./:/var/www/symfony
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - app-network
+
+  php:
     build:
-      context: ./docker/php
+      context: .
+      dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./:/var/www/symfony
     depends_on:
-      - rabbitmq
       - mongodb
-    environment:
-      - APP_ENV=dev
-      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
-      - MONGODB_URL=mongodb://mongodb:27017
+      - rabbitmq
     networks:
       - app-network
-  # Service RabbitMQ
+
+  worker:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./:/var/www/symfony
+    depends_on:
+      - php
+      - rabbitmq
+      - mongodb
+    command: ["php", "bin/console", "messenger:consume", "async_email", "--limit=10", "-vv"]
+    networks:
+      - app-network
+
   rabbitmq:
     image: rabbitmq:3-management
     ports:
-      - "5672:5672"   # AMQP protocol port
-      - "15672:15672" # Management UI
+      - "15672:15672"  # Management interface
+      - "5672:5672"    # AMQP port
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
@@ -28,48 +52,33 @@ services:
     networks:
       - app-network
 
-  # Service MongoDB
   mongodb:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27017:27017"  # MongoDB port
     volumes:
       - mongodb_data:/data/db
-    networks:
-      - app-network
-
-  # Serveur web Nginx
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./:/var/www/symfony
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - app
-    networks:
-      - app-network
-
-  # Worker Symfony pour le traitement asynchrone
-  worker:
-    build:
-      context: ./docker/php
-    volumes:
-      - ./:/var/www/symfony
-    depends_on:
-      - rabbitmq
-      - mongodb
-    command: php bin/console messenger:consume async --time-limit=3600
     environment:
-      - APP_ENV=dev
-      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
-      - MONGODB_URL=mongodb://mongodb:27017
+      - MONGO_INITDB_DATABASE=email_api
+    networks:
+      - app-network
+      
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+    depends_on:
+      - mongodb
     networks:
       - app-network
 
 networks:
   app-network:
+    driver: bridge
 
 volumes:
   rabbitmq_data:

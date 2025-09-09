@@ -1,8 +1,6 @@
-FROM ubuntu:latest
-LABEL authors="yassmine"
 FROM php:8.2-fpm
 
-# Installation des dépendances système
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -11,23 +9,21 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     librabbitmq-dev
 
-# Extensions PHP
+# PHP extensions
 RUN docker-php-ext-install \
-    pdo_mysql \
     zip \
     intl \
     opcache
 
-# Installation de Composer
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Installation de l'extension MongoDB
+# Install MongoDB extension
 RUN pecl install mongodb && docker-php-ext-enable mongodb
 
-# Installation de l'extension AMQP pour RabbitMQ
+# Install AMQP extension for RabbitMQ
 RUN pecl install amqp && docker-php-ext-enable amqp
 
 WORKDIR /var/www/symfony
 
 CMD ["php-fpm"]
-ENTRYPOINT ["top", "-b"]
