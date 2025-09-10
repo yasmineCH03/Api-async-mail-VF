@@ -4,15 +4,29 @@ namespace App\Message;
 
 class SendEmailMessage
 {
-    private $emailId;
+    private $to;
+    private $subject;
+    private $body;
 
-    public function __construct(string $emailId)
+    public function __construct(string $to, string $subject, string $body)
     {
-        $this->emailId = $emailId;
+        $this->to = $to;
+        $this->subject = $subject;
+        $this->body = $body;
     }
 
-    public function getEmailId(): string
+    public function getTo(): string
     {
-        return $this->emailId;
+        return $this->to;
+    }
+
+    public function getSubject(): string
+    {
+        return $this->subject;
+    }
+
+    public function getBody(): string
+    {
+        return $this->body;
     }
 }
