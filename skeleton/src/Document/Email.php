@@ -11,6 +11,9 @@ class Email
     private ?string $id = null;
 
     #[MongoDB\Field(type: 'string')]
+    private ?string $trackingId = null;
+
+    #[MongoDB\Field(type: 'string')]
     private ?string $to = null;
 
     #[MongoDB\Field(type: 'string')]
@@ -20,7 +23,7 @@ class Email
     private ?string $body = null;
 
     #[MongoDB\Field(type: 'string')]
-    private ?string $status = 'pending';
+    private ?string $status = 'queued';
 
     #[MongoDB\Field(type: 'date')]
     private ?\DateTime $createdAt = null;
@@ -34,6 +37,17 @@ class Email
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function getTrackingId(): ?string
+    {
+        return $this->trackingId;
+    }
+
+    public function setTrackingId(string $trackingId): self
+    {
+        $this->trackingId = $trackingId;
+        return $this;
     }
 
     public function getTo(): ?string

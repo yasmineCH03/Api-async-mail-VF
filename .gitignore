@@ -1,0 +1,70 @@
+# Symfony
+skeleton/var/
+skeleton/vendor/
+skeleton/.env.local
+skeleton/.env.local.php
+skeleton/.env.*.local
+skeleton/config/secrets/prod/prod.decrypt.private.php
+skeleton/public/bundles/
+skeleton/var/
+skeleton/vendor/
+
+# Composer
+composer.phar
+composer.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+
+# Node modules (if any)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+
+# Temporary files
+tmp/
+temp/
+
+# Coverage reports
+coverage/
+clover.xml
+
+# PHPUnit
+.phpunit.result.cache
+
+# Backup files
+*.bak
+*.backup
+
+# Local configuration
+docker-compose.override.yml

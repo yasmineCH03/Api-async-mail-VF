@@ -35,7 +35,7 @@ services:
       - php
       - rabbitmq
       - mongodb
-    command: ["php", "bin/console", "messenger:consume", "async_email", "--limit=10", "-vv"]
+    command: ["php", "skeleton/bin/console", "messenger:consume", "async_email", "--limit=10", "-vv"]
     networks:
       - app-network
 
@@ -71,8 +71,20 @@ services:
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH=false
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_URL=mongodb://mongodb:27017
     depends_on:
       - mongodb
+    networks:
+      - app-network
+
+  mailpit:
+    image: axllent/mailpit
+    restart: always
+    ports:
+      - "1025:1025"  # SMTP port
+      - "8025:8025"  # Web UI port
     networks:
       - app-network
 
